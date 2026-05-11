@@ -1,0 +1,8 @@
+# service-binding.yaml
+apiVersion: services.cloud.sap.com/v1
+kind: ServiceBinding
+metadata:
+  name: object-store-binding
+  namespace: movie-rest
+spec:
+  serviceInstanceName: object-store-instance
