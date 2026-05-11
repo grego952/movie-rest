@@ -1,0 +1,40 @@
+name: Deploy
+
+permissions:
+  id-token: write
+  contents: read
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Kyma CLI
+        uses: kyma-project/setup-kyma-cli@v1.1.0
+
+      - name: Get kubeconfig
+        id: oidc
+        uses: kyma-project/setup-kyma-cli/kubeconfig@v1.1.0
+        with:
+          audience: "my-client-id-for-gh-action"
+          api-server-url: "${{ secrets.SERVER }}"
+          ca-crt: "${{ secrets.CA_CRT }}"
+          id-token-auto-refresh: "true"
+
+      - uses: kyma-project/setup-kyma-cli/app-push@v1.1.0
+        with:
+          name: movies-rest
+          code-path: .
+          container-port: "8080"
+          expose: "true"
+          istio-inject: "true"
+          mount-service-binding-secret: object-store-binding
+          kubeconfig: "${{ steps.oidc.outputs.kubeconfig }}"
+          env-from-file: .env
+          append-output-path: /swagger-ui.html
