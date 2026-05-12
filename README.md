@@ -1,6 +1,6 @@
 # Movies REST API — Java / SAP BTP Kyma
 
-A Spring Boot REST API that stores movie records as JSON objects in an S3-compatible **SAP Object Store** service. The app is deployed to **SAP BTP, Kyma runtime** via the `kyma-project/setup-kyma-cli/app-push` GitHub Action.
+A Spring Boot REST API that stores movie records as JSON objects in an S3-compatible **SAP Object Store** service. The app is deployed to **SAP BTP, Kyma runtime** using the `kyma-project/setup-kyma-cli/app-push` GitHub Action.
 
 ## Architecture
 
