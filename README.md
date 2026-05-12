@@ -79,7 +79,7 @@ These create:
 Push to the `main` branch. The GitHub Actions workflow will:
 
 1. Install Kyma CLI
-2. Obtain a kubeconfig via OIDC
+2. Obtain a kubeconfig using OIDC
 3. Build and push the container image
 4. Deploy the app to the `movie-rest` namespace with:
    - Istio sidecar injection enabled
