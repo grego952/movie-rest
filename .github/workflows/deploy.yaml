@@ -30,6 +30,7 @@ jobs:
       - uses: kyma-project/setup-kyma-cli/app-push@v1.1.0
         with:
           name: movies-rest
+          namespace: movie-rest
           code-path: .
           container-port: "8080"
           expose: "true"
