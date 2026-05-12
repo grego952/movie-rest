@@ -87,7 +87,7 @@ Push to the `main` branch. The GitHub Actions workflow will:
    - The `object-store-binding` secret mounted as a service binding
    - JVM tuning from `.env`
 
-The workflow appends `/swagger-ui.html` to the output URL so you land directly on the API docs.
+The workflow appends `/swagger-ui.html` to the output URL so you go directly on the API docs.
 
 ## Local Development
 
