@@ -27,11 +27,6 @@ jobs:
           ca-crt: "${{ secrets.CA_CRT }}"
           id-token-auto-refresh: "true"
 
-      - name: Verify kubeconfig works
-        run: |
-          echo "${{ steps.oidc.outputs.kubeconfig }}" > /tmp/test-kube.yaml
-          kubectl --kubeconfig /tmp/test-kube.yaml get ns
-
       - uses: kyma-project/setup-kyma-cli/app-push@v1.1.0
         with:
           name: movies-rest
